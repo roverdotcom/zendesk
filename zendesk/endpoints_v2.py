@@ -3,12 +3,11 @@ API MAPPING FOR Zendesk API V2
 """
 
 mapping_table = {
-
     # Tickets
     'list_all_tickets': {
         'path': '/tickets.json',
         'method': 'GET',
-        'valid_params': ['external_id']
+        'valid_params': ('external_id',)
     },
     'show_ticket': {
         'path': '/tickets/{{ticket_id}}.json',
@@ -16,7 +15,7 @@ mapping_table = {
     },
     'show_many_tickets': {
         'path': '/tickets/show_many.json',
-        'valid_params': ['ids'],
+        'valid_params': ('ids',),
         'method': 'POST'
     },
     'create_ticket': {
@@ -29,7 +28,7 @@ mapping_table = {
     },
     'update_many_tickets': {
         'path': '/tickets/update_many.json',
-        'valid_params': ['ids'],
+        'valid_params': ('ids',),
         'method': 'PUT',
     },
     'delete_ticket': {
@@ -38,7 +37,7 @@ mapping_table = {
     },
     'delete_many_tickets': {
         'path': 'tickets/destroy_many.json',
-        'valid_params': ['ids'],
+        'valid_params': ('ids',),
         'method': 'DELETE',
     },
     'list_ticket_collaborators': {
@@ -63,7 +62,7 @@ mapping_table = {
     # Incremental Tickets
     'export_incremental_tickets': {
         'path': '/exports/tickets.json',
-        'valid_params': ['start_time'],
+        'valid_params': ('start_time',),
         'method': 'GET',
     },
 
@@ -123,17 +122,17 @@ mapping_table = {
     # Users
     'list_users': {
         'path': '/users.json',
-        'valid_params': ('role','page'),
+        'valid_params': ('role', 'page', 'email', 'external_id'),
         'method': 'GET',
     },
     'list_users_in_group': {
         'path': '/groups/{{group_id}}/users.json',
-        'valid_params': ('role','page'),
+        'valid_params': ('role', 'page'),
         'method': 'GET',
     },
     'list_users_in_organization': {
         'path': '/organization/{{organization_id}}/users.json',
-        'valid_params': ('role','page'),
+        'valid_params': ('role', 'page'),
         'method': 'GET',
     },
     'show_user': {
